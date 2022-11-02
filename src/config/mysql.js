@@ -1,15 +1,14 @@
 const mysql = require('mysql2')
 
-const { prodMysql } = require('./enviroment')
-const { host, database, user, password } = prodMysql
+const { HOST, DATABASE_SQL, USER, PASSWORD_MYSQL } = process.env
 
 class MysqlDB {
   connection () {
     return mysql.createPool({
-      host,
-      database,
-      user,
-      password
+      host: HOST,
+      database: DATABASE_SQL,
+      user: USER,
+      password: PASSWORD_MYSQL
     }).promise()
   }
 }

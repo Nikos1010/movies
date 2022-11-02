@@ -1,21 +1,16 @@
-const movieRepository = require('../../repository/mysql/movieRepository')
-
+// No deberia ir logica en el modelo, simplemente los getter y setter.
 module.exports = class Movies {
+  #id
+  #name
+  #releaseDate
+  #genre
+  #productionCompany
+
   constructor (id, name, releaseDate, genre, productionCompany) {
-    this.id = id
-    this.name = name
-    this.releaseDate = releaseDate
-    this.genre = genre
-    this.productionCompany = productionCompany
+    this.#id = id
+    this.#name = name
+    this.#releaseDate = releaseDate
+    this.#genre = genre
+    this.#productionCompany = productionCompany
   }
-
-  save () {}
-
-  static deleteById (id) {}
-
-  static async fetchAll () {
-    return movieRepository.findAll()
-  }
-
-  static findById (id) {}
 }
